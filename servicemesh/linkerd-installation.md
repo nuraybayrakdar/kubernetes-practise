@@ -1,5 +1,7 @@
 
 [Linkerd Demo](https://linkerd.io/2.16/getting-started/#step-4-install-the-demo-app)
+[Linkerd Architecture](https://linkerd.io/2.16/reference/architecture/)
+[Example](https://bdemirpolat.medium.com/linkerd-ile-service-mesh-5b96769a36e4)
 
 **Step 1: Install the CLI**
 $ curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install-edge | sh
@@ -67,7 +69,3 @@ Linkerd Viz Neleri Sağlar:
 - Uygulamalar arasındaki isteklerin gecikme, hata oranları ve başarı oranları gibi metriklerini toplar.
 - Uygulama ağ trafiğini detaylı olarak takip edebilme ve performans izleme.
 - Web dashboard aracılığıyla bu metriklerin görselleştirilmesi ve daha kolay takip edilmesi.
-
-**Example**
-
-https://bdemirpolat.medium.com/linkerd-ile-service-mesh-5b96769a36e4
