@@ -1,0 +1,8 @@
+ts=2024-10-10T12:06:32.825Z caller=main.go:181 level=info msg="Starting Alertmanager" version="(version=0.27.0, branch=HEAD, revision=0aa3c2aad14cff039931923ab16b26b7481783b5)"
+ts=2024-10-10T12:06:32.825Z caller=main.go:182 level=info build_context="(go=go1.21.7, platform=linux/arm64, user=root@2024b1e0f6e3, date=20240228-11:47:50, tags=netgo)"
+ts=2024-10-10T12:06:32.859Z caller=coordinator.go:113 level=info component=configuration msg="Loading configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-10-10T12:06:32.860Z caller=coordinator.go:126 level=info component=configuration msg="Completed loading of configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-10-10T12:06:32.862Z caller=tls_config.go:313 level=info msg="Listening on" address=[::]:9093
+ts=2024-10-10T12:06:32.862Z caller=tls_config.go:352 level=info msg="TLS is disabled." http2=false address=[::]:9093
+ts=2024-10-10T12:06:32.907Z caller=coordinator.go:113 level=info component=configuration msg="Loading configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml
+ts=2024-10-10T12:06:32.907Z caller=coordinator.go:126 level=info component=configuration msg="Completed loading of configuration file" file=/etc/alertmanager/config_out/alertmanager.env.yaml

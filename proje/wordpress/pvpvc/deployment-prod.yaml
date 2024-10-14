@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  namespace: production
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role
+                operator: In
+                values:
+                - wordpress-node
+      containers:
+      - name: wordpress
+        image: wordpress:4.8-apache
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql
+          valueFrom:
+            secretKeyRef:
+              name: mysecrets
+              key: db_server
+        - name: WORDPRESS_DB_PASSWORD
+          value: password
+          valueFrom:
+            secretKeyRef:
+              name: mysecrets
+              key: db_password
+        - name: WORDPRESS_DB_USER
+          value: username
+          valueFrom:
+            secretKeyRef:
+              name: mysecrets
+              key: db_username
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: wordpress-persistent-storage
+          mountPath: /var/www/html
+      - name:
+      volumes:
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: pvc-wordpress-prod

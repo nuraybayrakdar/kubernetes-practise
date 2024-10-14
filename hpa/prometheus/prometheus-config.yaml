@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: monitoring
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s  # Prometheus'un metrikleri ne sıklıkta alacağını belirler
+    scrape_configs:
+      - job_name: 'kubernetes-apiservers'
+        kubernetes_sd_configs:
+          - role: endpoints
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_service_name]
+            action: keep
+            regex: kubernetes
+
+      - job_name: 'kubernetes-nodes'
+        kubernetes_sd_configs:
+          - role: nodes
+
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+          - role: pods
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_namespace]
+            action: keep
+            regex: .  # Tüm namespace'leri izle
+
+      - job_name: 'kubernetes-services'
+        kubernetes_sd_configs:
+          - role: services
+
+      - job_name: 'php-apache'
+        kubernetes_sd_configs:
+          - role: endpoints
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_service_name]
+            action: keep
+            regex: php-apache-service  # PHP-Apache servis adınız
