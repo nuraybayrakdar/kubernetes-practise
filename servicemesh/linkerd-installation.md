@@ -6,7 +6,7 @@
 **Step 1: Install the CLI**
 $ curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install-edge | sh
 
-$ export PATH=$HOME/.linkerd2/bin:$PATH
+$ export PATH=$HOME/.linkerd2/bin:$PATH**
 
 $ linkerd version
 
@@ -25,7 +25,7 @@ linkerd-existence
     see https://linkerd.io/2/checks/#l5d-existence-linkerd-config for hints
 
 Status check results are ×
-
+ 
 Bu hata, Kubernetes node'larınızın Docker container runtime'ını kullandığını ve Linkerd proxy-init container'ının root olarak çalışması gerektiğini belirtiyor.
 
 Solution: Linkerd'yi proxy-init container'ını root kullanıcısı olarak çalıştıracak şekilde kurmanız gerekiyor.
