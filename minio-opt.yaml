@@ -7049,7 +7049,7 @@ metadata:
     operator.min.io/authors: MinIO, Inc.
     operator.min.io/license: AGPLv3
     operator.min.io/support: https://subnet.min.io
-  name: minio-operator-role
+  name: thy-dev-minio-operator-role
 rules:
 - apiGroups:
   - apiextensions.k8s.io
@@ -7232,11 +7232,11 @@ metadata:
     operator.min.io/authors: MinIO, Inc.
     operator.min.io/license: AGPLv3
     operator.min.io/support: https://subnet.min.io
-  name: minio-operator-binding
+  name: thy-dev-minio-operator-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: minio-operator-role
+  name: thy-dev-minio-operator-role
 subjects:
 - kind: ServiceAccount
   name: minio-operator
